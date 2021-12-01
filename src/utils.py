@@ -12,9 +12,9 @@ def get_input():
     line of the input file"""
     path = os.path.dirname(__main__.__file__)
     name = os.path.basename(__main__.__file__)
-    if not re.fullmatch('.+_\d{1,2}\.py', name):
+    if not re.fullmatch('day\d{1,2}_[1, 2]\.py', name):
         raise RuntimeError('Invalid script name.')
-    day = name.split('_')[-1].split('.')[0]
+    day = name.split('_')[0][3:]
     try:
         with open(path+'/../inputs/' + day + '.txt', 'r') as file:
             content = file.readlines()
@@ -27,9 +27,9 @@ def get_test():
     line of the testing file"""
     path = os.path.dirname(__main__.__file__)
     name = os.path.basename(__main__.__file__)
-    if not re.fullmatch('.+_\d{1,2}\.py', name):
+    if not re.fullmatch('day\d{1,2}_[1, 2]\.py', name):
         raise RuntimeError('Invalid script name.')
-    day = name.split('_')[-1].split('.')[0]
+    day = name.split('_')[0][3:]
     try:
         with open(path+'/../test_inputs/' + day + '.txt', 'r') as file:
             content = file.readlines()
